@@ -1,0 +1,143 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = M$:\IAR\Installs\common\bin\XclFileGenerator.exe $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in+++M$:\IAR\Installs\common\bin\XclFileGenerator.exe $flags
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = M$:\IAR\Installs\common\bin\SourceIndexer.exe $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out+++M$:\IAR\Installs\common\bin\SourceIndexer.exe $flags
+
+rule MAKEBROWSE
+  command = M$:\IAR\Installs\common\bin\makeBrowseData.exe $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out+++M$:\IAR\Installs\common\bin\makeBrowseData.exe $flags
+
+rule PDBLINK
+  command = M$:\IAR\Installs\common\bin\PbdLink.exe $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out+++M$:\IAR\Installs\common\bin\PbdLink.exe $flags
+
+
+
+#Build steps
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\basic_operations.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\basic_operations.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Calculator.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Calculator.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\gpio.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\gpio.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\gptm.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\gptm.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\keypad.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\keypad.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\lcd.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\lcd.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\main.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\main.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\startup_ewarm.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\startup_ewarm.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\systic.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\systic.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.xcl : COMPILER_XCL 
+  xclcommand = -source_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\time_operations.c" -xcl_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.xcl" -macro_file "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.tmp" -icc_path M$:\IAR\Installs\arm\bin\iccarm.exe
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\time_operations.c" -D ewarmPART_TM4C123GH6PM -D TARGET_IS_TM4C123_RB1 -o "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\Obj\\" --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M4 -e --fpu=VFPv4_sp --dlib_config M$:\IAR\Installs\arm\inc\c\DLib_Config_Normal.h -I C$:\ti\TivaWare_C_Series-2.2.0.295\ -Ol --predef_macros "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.tmp"
+  rspfile_name = M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.xcl.rsp
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\basic_operations.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Calculator.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\gpio.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\gptm.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\keypad.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\lcd.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\main.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\startup_ewarm.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\systic.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.pbi : INDEXER M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.xcl |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\time_operations.c
+  flags = "-out=M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.pbi" -f "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.xcl"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project.pbw : MAKEBROWSE M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project.pbd
+  flags = "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project.pbd" -output "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project.pbw"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part0.pbi : PDBLINK M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.pbi |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.pbi $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.pbi
+  flags = -M "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part0.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\basic_operations.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\Calculator.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gpio.pbi"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part1.pbi : PDBLINK M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.pbi |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.pbi $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.pbi
+  flags = -M "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part1.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\gptm.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\keypad.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\lcd.pbi"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part2.pbi : PDBLINK M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.pbi |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.pbi $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.pbi
+  flags = -M "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part2.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\main.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\startup_ewarm.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\systic.pbi"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part3.pbi : PDBLINK M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.pbi
+  flags = -M "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part3.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\time_operations.pbi"
+
+build M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project.pbd : PDBLINK M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part0.pbi |  $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part1.pbi $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part2.pbi $
+M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part3.pbi
+  flags = -M "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project.pbd" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part0.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part1.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part2.pbi" "M$:\Semester$ 7\Intro$ to$ Embedded\Project\Project\Debug\BrowseInfo\project_part3.pbi"
+
